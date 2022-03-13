@@ -46,7 +46,8 @@ def indexFolder(directory):
     folder_list = [name for name in os.listdir(directory) if os.path.isdir(os.path.join(directory, name))] # Source: https://www.codegrepper.com/code-examples/python/get+list+of+folders+in+directory+python
     if len(folder_list) > 0:
         for i in range(len(folder_list)):
-            indexFolder(os.path.join(directory, folder_list[i]))
+            if folder_list[i] not in ignored:
+                indexFolder(os.path.join(directory, folder_list[i]))
 
     file_list = [n for n in os.listdir(directory) if not n in folder_list] # anything not in folder_list is a file
 
