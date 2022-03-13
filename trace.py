@@ -45,7 +45,7 @@ def indexFolder(directory):
     
     # Write file contents.
     for i in range(len(file_list)):
-        if file_list[i] != "index.html": f.write("        <li class=\"file\"><a href=\"" + file_list[i] + "\">" + file_list[i] + "</a></li>\n")
+        if file_list[i] != "index.html": f.write("        <li class=\"file\"><a target=\"_blank\" href=\"" + file_list[i] + "\">" + file_list[i] + "</a></li>\n")
     
     f.write(boilerplate2)
     f.close()
