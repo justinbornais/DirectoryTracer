@@ -1,9 +1,24 @@
 <html>
 <head>
+    <title>Files</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <style>
-        .dir {
-            font-size: 22px;
+        body {
+            margin: 2rem;
+            font-family: sans-serif;
+        }
+        ul {
+            list-style-type: none;
+        }
+        a, a:visited {
             color: blue;
+        }
+        a:hover {
+            background-color: yellow;
+        }
+        .dir {
+            font-size: 20px;
         }
         .file {
             font-size: 18px;
@@ -11,13 +26,14 @@
     </style>
 </head>
 <body>
+    <h2>View Directory Contents</h2>
+    <h1>.</h1>
     <ul>
-        <li class="dir"><b><a href="..">..</a></b></li>
         <br />
-        <li class="file"><a target="_blank" href="LICENSE">LICENSE</a></li>
-        <li class="file"><a target="_blank" href="README.md">README.md</a></li>
-        <li class="file"><a target="_blank" href="trace.py">trace.py</a></li>
-        <li class="file"><a target="_blank" href="tree.py">tree.py</a></li>
+        <li class="file"><a target="_blank" href="LICENSE">📄 LICENSE</a></li>
+        <li class="file"><a target="_blank" href="README.md">📄 README.md</a></li>
+        <li class="file"><a target="_blank" href="trace.py">📄 trace.py</a></li>
+        <li class="file"><a target="_blank" href="tree.py">📄 tree.py</a></li>
     </ul>
 </body>
 </html>
