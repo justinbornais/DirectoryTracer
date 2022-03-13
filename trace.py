@@ -46,7 +46,7 @@ def indexFolder(directory):
     folder_list = [name for name in os.listdir(directory) if os.path.isdir(os.path.join(directory, name))] # Source: https://www.codegrepper.com/code-examples/python/get+list+of+folders+in+directory+python
     if len(folder_list) > 0:
         for i in range(len(folder_list)):
-            if folder_list[i] not in ignored:
+            if folder_list[i] not in ignored and not folder_list[i][0] == '.':
                 indexFolder(os.path.join(directory, folder_list[i]))
 
     file_list = [n for n in os.listdir(directory) if not n in folder_list] # anything not in folder_list is a file
@@ -58,7 +58,7 @@ def indexFolder(directory):
     if directory!='.':
         f.write("        <li class=\"dir\"><b><a href=\"..\">⬆ Parent</a></b></li></br>\n")
     for i in range(len(folder_list)):
-        if folder_list[i] not in ignored:
+        if folder_list[i] not in ignored and not folder_list[i][0] == '.':
             f.write("        <li class=\"dir\"><b><a href=\"" + folder_list[i] + "\">📁 " + folder_list[i] + "/</a></b></li>\n")
 
     # separate folders from files
@@ -66,7 +66,7 @@ def indexFolder(directory):
 
     # Write file contents.
     for i in range(len(file_list)):
-        if file_list[i] not in ignored and file_list[i] != "index.html":
+        if file_list[i] not in ignored and file_list[i] != "index.html" and not file_list[i][0] == '.':
             f.write("        <li class=\"file\"><a target=\"_blank\" href=\"" + file_list[i] + "\">📄 " + file_list[i] + "</a></li>\n")
 
     # ending off the html file
