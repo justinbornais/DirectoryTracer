@@ -49,7 +49,7 @@ def indexFolder(directory):
 
     file_list = [n for n in os.listdir(directory) if not n in folder_list] # anything not in folder_list is a file
 
-    f = open(str(directory) + "\\index.html", "w", encoding="utf8") # Create the file.
+    f = open(str(directory) + "/index.html", "w", encoding="utf8") # Create the file.
     
     # Fill with initial HTML code.
     f.write(boilerplate1)
