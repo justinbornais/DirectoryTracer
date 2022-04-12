@@ -48,6 +48,8 @@ def indexFolder(directory):
                 indexFolder(os.path.join(directory, folder_list[i]))
 
     file_list = [n for n in os.listdir(directory) if not n in folder_list] # anything not in folder_list is a file
+    folder_list.sort()
+    file_list.sort()
 
     f = open(str(directory) + "/index.html", "w", encoding="utf8") # Create the file.
     
