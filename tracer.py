@@ -9,7 +9,7 @@ if os.path.exists('.fileignore'):
 # boilerplate used in the output html file
 boilerplate1 = """<html>
 <head>
-    <title>Mass Music</title>
+    <title>Site Title</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <style>
