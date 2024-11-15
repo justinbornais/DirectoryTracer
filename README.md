@@ -1,4 +1,4 @@
-# DirectoryTracer
+# Directory Tracer
 
 ## Author: Justin Bornais
 
