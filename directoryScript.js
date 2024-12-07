@@ -18,6 +18,23 @@ function getType(str) {
     if(videos.some(val => str.endsWith(val))) return "video";
 }
 
+const exts = {
+    '.doc': '📝',
+    '.docx': '📝',
+    '.csv': '📊',
+    '.xls': '📊',
+    '.xlsx': '📊',
+    '.jpg': '📷',
+    '.jpeg': '📷',
+    '.png': '📷',
+    '.pdf': '📄'
+};
+  
+const emoji = (f) => {
+    const ext = f.split('.').pop();
+    return exts[ext] || '📄';
+};
+
 function addData(val) {
     var ul = document.getElementById("directory-list"); /* Get the ul element. */
     let data2 = [];
@@ -53,13 +70,14 @@ function addData(val) {
     
     data2.map(object => {
         if(object.type === "file") {
-            var elm = getType(object.name);
+            let em = emoji(object.name);
+            let elm = getType(object.name);
             var a = document.createElement("a");
             if(Android) a.href = `https://docs.google.com/viewerng/viewer?url=${link}${object.name}`;
             else a.href = `${object.name}`;
             a.target = "_blank";
-            a.value = `📄 ${object.name}`;
-            a.innerHTML = `📄 ${object.name}`;
+            a.value = `${em} ${object.name}`;
+            a.innerHTML = `${em} ${object.name}`;
             var li = document.createElement("li");
             li.setAttribute("class", "file");
             li.appendChild(a);
