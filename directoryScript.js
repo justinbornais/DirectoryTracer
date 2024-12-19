@@ -70,7 +70,7 @@ function addData(val) {
             a.value = `${em} ${object.n}`;
             a.innerHTML = `${em} ${object.n}`;
             var li = document.createElement("li");
-            li.setAttribute("class", "file");
+            li.setAttribute("class", "f");
             li.appendChild(a);
             ul.appendChild(li);
         }
