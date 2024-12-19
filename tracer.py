@@ -50,7 +50,7 @@ def indexFolder(directory):
 
     file_list = [n for n in os.listdir(directory) if not n in folder_list] # anything not in folder_list is a file
     file_list.sort()
-    jsData = "";
+    jsData = ""
 
     f = open(str(directory) + "/index.html", "w", encoding="utf8") # Create the file.
     
@@ -73,7 +73,7 @@ def indexFolder(directory):
     # Write file contents.
     for i in range(len(file_list)):
         if file_list[i] not in ignored and file_list[i] != "index.html" and not file_list[i][0] == '.':
-            jsData += f'{{n: "{file_list[i]}", t: "f"}},'
+            jsData += f'{{n:"{file_list[i]}",t:"f"}},'
     
     boilerplate3 = boilerplate2.replace("const data = [];", f"const data = [{jsData}];")
     
