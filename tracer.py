@@ -8,6 +8,8 @@ def read_file_to_string(file_path):
     file_contents = re.sub(r'/\*.*?\*/', '', file_contents, flags=re.DOTALL)
     file_contents = ''.join(file_contents.splitlines())
     file_contents = file_contents.replace("\t", "").replace("  ", "")
+    if file_path.endswith(".css"):
+        file_contents = file_contents.replace(" ", "")
     return file_contents
 
 css = read_file_to_string("./directoryStyles.css")
