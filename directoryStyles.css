@@ -9,10 +9,10 @@ body { margin: 2rem; font-family: sans-serif; }
     a:hover { color: white; }
 }
 ul, li { list-style-type: none; }
-.dir { font-size: 20px; font-weight: bold; }
-.file { font-size: 18px; }
-.input { padding-right: 10%; }
-.query { width: 100%; font-size: 20px; padding: 12px 20px; margin: 8px 0; box-sizing: border-box; }
+.d { font-size: 20px; font-weight: bold; }
+.f { font-size: 18px; }
+.i { padding-right: 10%; }
+.q { width: 100%; font-size: 20px; padding: 12px 20px; margin: 8px 0; box-sizing: border-box; }
 
 .container { display: flex; flex-wrap: wrap; }
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 { box-sizing: border-box; }

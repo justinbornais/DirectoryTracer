@@ -31,7 +31,7 @@ boilerplate1 = f"""<html>
 </head>
 <body>
     <h2>View Directory Contents</h2>
-    <div class="input"><input type="text" class="query" id="query" class="query" placeholder="Search for a file" /></div>
+    <div class="i"><input type="text" class="q" id="q" placeholder="Search for a file" /></div>
     """
 
 boilerplate2 = f"""    </ul>
@@ -58,14 +58,14 @@ def indexFolder(directory):
     f.write(boilerplate1)
     if directory != ".":
         f.write("   <h1>" + directory.replace("\\", "/") + "</h1>\n")
-        f.write("        <li class=\"dir\"><b><a href=\"..\">⬆ Parent</a></b></li></br>\n")
+        f.write("        <li class=\"d\"><b><a href=\"..\">⬆ Parent</a></b></li></br>\n")
         
-    f.write("    <ul id=\"directory-list\">\n")
+    f.write("    <ul id=\"dl\">\n")
     
     # Write folder contents.    
     for i in range(len(folder_list)):
         if folder_list[i] not in ignored and not folder_list[i][0] == '.':
-            jsData += f'{{name:"{folder_list[i]}",type:"folder"}},'
+            jsData += f'{{n:"{folder_list[i]}",t:"d"}},'
 
     # Separate folders from files.
     f.write("        <br />\n")
@@ -73,7 +73,7 @@ def indexFolder(directory):
     # Write file contents.
     for i in range(len(file_list)):
         if file_list[i] not in ignored and file_list[i] != "index.html" and not file_list[i][0] == '.':
-            jsData += f'{{name: "{file_list[i]}", type: "file"}},'
+            jsData += f'{{n: "{file_list[i]}", t: "f"}},'
     
     boilerplate3 = boilerplate2.replace("const data = [];", f"const data = [{jsData}];")
     
