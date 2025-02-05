@@ -4,7 +4,7 @@
 
 This is a simple Python program used for turning a given directory into a makeshift file server. It does this by tracing through a directory and creating index.html webpages in each folder and subfolder, displaying the contents of each directory.
 
-It also works for Github Pages. There is a sample workflow file [here](./.github/workflows/ghpages.yml] that runs the program and deploys it on Github Pages.
+It also works for Github Pages. There is a sample workflow file [here](./.github/workflows/ghpages.yml) that runs the program and deploys it on Github Pages.
 - **Note:** You may have to change it to use the `main` branch, or whichever branch you wish to deploy to GitHub Pages.
 - It does not commit the index.html files to your branch directly. Instead, it runs the script and uploads it to the servers.
 
