@@ -18,7 +18,7 @@ js = read_file_to_string("./directoryScript.js")
 # getting ignored files and folders
 ignored = ['.fileignore', 'directoryStyles.css', 'directoryScript.js']
 if os.path.exists('.fileignore'):
-    ignored = set(open('.fileignore', 'r').read().split('\n') + ['.fileignore'])
+    ignored = set(open('.fileignore', 'r').read().split('\n') + ignored)
 
 # boilerplate used in the output html file
 boilerplate1 = f"""<html>
