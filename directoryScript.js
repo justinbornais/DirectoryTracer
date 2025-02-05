@@ -3,9 +3,7 @@ var userAgent = navigator.userAgent.toLowerCase();
 var Android = userAgent.indexOf("android") > -1;
 var link = window.location.href;
 
-const data = [];
-
-const fuse = new Fuse(data, {
+const fuse = new Fuse(d, {
 	keys: ['n'],
     includeScore: true
 });
@@ -13,6 +11,7 @@ const fuse = new Fuse(data, {
 const exts = {
     'doc': '📝',
     'docx': '📝',
+    'exe': '💻',
     'csv': '📊',
     'xls': '📊',
     'xlsx': '📊',
@@ -29,12 +28,12 @@ const emoji = (f) => {
 
 function addData(val) {
     var ul = document.getElementById("dl"); /* Get the ul element. */
-    let data2 = [];
+    let d2 = [];
     
-    if(val.length === 0) data2 = [...data];
+    if(val.length === 0) d2 = [...d];
     else {
         const results = fuse.search(val);
-        data2 = results.map(result => {
+        d2 = results.map(result => {
             return {
                 n: result.item.n,
                 t: result.item.t
@@ -43,40 +42,23 @@ function addData(val) {
     }
     
     ul.textContent = "";
-    
-    data2.map(object => {
-        if(object.t === "d") {
-            var a = document.createElement("a");
-            a.href = `${object.n}`;
-            a.value = `📁 ${object.n}/`;
-            a.innerHTML = `📁 ${object.n}/`;
-            var li = document.createElement("li");
-            li.setAttribute("class", "d");
-            li.appendChild(a);
-            ul.appendChild(li);
-        }
-    });
+
+    let fh = d2.map(o => {
+        if (o.t !== "d") return "";
+        return `<li class="d"><a href="${o.n}">📁 ${o.n}</a></li>`;
+    }).join('');
+    ul.innerHTML += fh;
     
     var br = document.createElement("br");
     ul.appendChild(br);
-    
-    data2.map(object => {
-        if(object.t === "f") {
-            let em = emoji(object.n);
-            var a = document.createElement("a");
-            if(Android) a.href = `https://docs.google.com/viewerng/viewer?url=${link}${object.n}`;
-            else a.href = `${object.n}`;
-            a.target = "_blank";
-            a.value = `${em} ${object.n}`;
-            a.innerHTML = `${em} ${object.n}`;
-            var li = document.createElement("li");
-            li.setAttribute("class", "f");
-            li.appendChild(a);
-            ul.appendChild(li);
-        }
-    });
+
+    let ih = d2.map(o => {
+        if (o.t !== "f") return "";
+        let href = Android ? `https://docs.google.com/viewerng/viewer?url=${link}${o.n}`:`${o.n}`;
+        return `<li class="f"><a href="${href}" target="_blank">${emoji(o.n)} ${o.n}</a></li>`;
+    }).join('');
+    ul.innerHTML += ih;
 }
 
 addData("");
-
 document.getElementById("q").addEventListener("keyup", (e) => addData(e.target.value));
