@@ -9,7 +9,7 @@ It also works for Github Pages. There is a sample workflow file [here](./.github
 - It does not commit the index.html files to your branch directly. Instead, it runs the script and uploads it to the servers.
 
 In order to run this code, you must have Python installed. Simply clone this repository into your directory. You may also update the `directoryScript.js` and `directoryStyles.css` files to change the styling.
-- The CSS and JS code will be minimized by the program to ensure minimal HTML filesize.
+- The CSS and JS code will be minimized by the program to ensure minimal HTML filesize. However, it will not properly remove single-line comments. So in JS, be sure to only use multi-line comments `/* */` if you wish to write comments.
 
 Then, simply run `trace.py` by typing `python trace.py` or `py trace.py` and your webpages should be automatically created!
 
